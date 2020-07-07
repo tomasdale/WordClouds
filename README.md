@@ -1,3 +1,3 @@
 # Starwars WordClouds
 
-![First Version](/master/static/first_version.PNG)
+![First Version](/static/first_version.PNG)
