@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordClouds</title>
+
+    <script src="static/wordcloud2.js"></script>
+  
+</head>
+
+<body>
+    <canvas id="canvas_1" width = "500" height= "367"></canvas>
+    <canvas id="canvas_2" width = "500" height= "367"></canvas>
+    <canvas id="canvas_3" width = "500" height= "367"></canvas>
+    <canvas id="canvas_4" width = "500" height= "367"></canvas>
+    <canvas id="canvas_5" width = "500" height= "367"></canvas>
+    <canvas id="canvas_6" width = "500" height= "367"></canvas>
+</body>
+<script>
+    var sw_1 = {{ sw_1 | safe}};
+    WordCloud(document.getElementById("canvas_1"), {
+        list: sw_1,
+        gridSize: Math.round(40 * document.getElementById("canvas_1").width / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 0.7) * document.getElementById("canvas_1").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+var sw_2 = {{ sw_2 | safe}};
+    WordCloud(document.getElementById("canvas_2"), {
+        list: sw_2,
+        gridSize: Math.round(40 * document.getElementById("canvas_2").width / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 0.7) * document.getElementById("canvas_2").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+    var sw_3 = {{ sw_3 | safe}};
+    WordCloud(document.getElementById("canvas_3"), {
+        list: sw_3,
+        gridSize: Math.round(40 * document.getElementById("canvas_3").width / 1024),
+        weightFactor: function (size) {
+            return size * document.getElementById("canvas_3").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+    var sw_4 = {{ sw_4 | safe}};
+    WordCloud(document.getElementById("canvas_4"), {
+        list: sw_4,
+        gridSize: Math.round(40 * document.getElementById("canvas_4").width / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 0.7) * document.getElementById("canvas_4").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+    var sw_5 = {{ sw_5 | safe}};
+    WordCloud(document.getElementById("canvas_5"), {
+        list: sw_5,
+        gridSize: Math.round(40 * document.getElementById("canvas_5").width / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 0.7) * document.getElementById("canvas_5").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+    var sw_6 = {{ sw_6 | safe}};
+    WordCloud(document.getElementById("canvas_6"), {
+        list: sw_6,
+        gridSize: Math.round(40 * document.getElementById("canvas_6").width / 1024),
+        weightFactor: function (size) {
+            return Math.pow(size, 0.7) * document.getElementById("canvas_6").width / 1024;
+        },
+        fontFamily: 'Times, serif',
+        color: "random-dark",
+        backgroundColor: '#ffe0e0'
+    });
+</script>
+
+</html>
