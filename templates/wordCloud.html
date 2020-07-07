@@ -7,16 +7,32 @@
     <title>WordClouds</title>
 
     <script src="static/wordcloud2.js"></script>
-  
+    <style>
+        button {
+            padding: 15px 32px;
+        }
+        canvas{
+            margin: 20px;
+        }
+        #current {
+            text-align:center;
+            font-size: 40px;
+        }
+    </style>
 </head>
 
 <body>
-    <canvas id="canvas_1" width = "500" height= "367"></canvas>
-    <canvas id="canvas_2" width = "500" height= "367"></canvas>
-    <canvas id="canvas_3" width = "500" height= "367"></canvas>
-    <canvas id="canvas_4" width = "500" height= "367"></canvas>
-    <canvas id="canvas_5" width = "500" height= "367"></canvas>
-    <canvas id="canvas_6" width = "500" height= "367"></canvas>
+
+    <form action="/">
+        <button type="submit">Home</button>
+    </form>
+    <div id="current">Hover Some Element</div>
+    <canvas id="canvas_1" width="500" height="367"></canvas>
+    <canvas id="canvas_2" width="500" height="367"></canvas>
+    <canvas id="canvas_3" width="500" height="367"></canvas>
+    <canvas id="canvas_4" width="500" height="367"></canvas>
+    <canvas id="canvas_5" width="500" height="367"></canvas>
+    <canvas id="canvas_6" width="500" height="367"></canvas>
 </body>
 <script>
     var sw_1 = {{ sw_1 | safe}};
@@ -28,9 +44,12 @@
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
-var sw_2 = {{ sw_2 | safe}};
+    var sw_2 = {{ sw_2 | safe}};
     WordCloud(document.getElementById("canvas_2"), {
         list: sw_2,
         gridSize: Math.round(40 * document.getElementById("canvas_2").width / 1024),
@@ -39,7 +58,10 @@ var sw_2 = {{ sw_2 | safe}};
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
     var sw_3 = {{ sw_3 | safe}};
     WordCloud(document.getElementById("canvas_3"), {
@@ -50,7 +72,10 @@ var sw_2 = {{ sw_2 | safe}};
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
     var sw_4 = {{ sw_4 | safe}};
     WordCloud(document.getElementById("canvas_4"), {
@@ -61,7 +86,10 @@ var sw_2 = {{ sw_2 | safe}};
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
     var sw_5 = {{ sw_5 | safe}};
     WordCloud(document.getElementById("canvas_5"), {
@@ -72,7 +100,10 @@ var sw_2 = {{ sw_2 | safe}};
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
     var sw_6 = {{ sw_6 | safe}};
     WordCloud(document.getElementById("canvas_6"), {
@@ -83,8 +114,16 @@ var sw_2 = {{ sw_2 | safe}};
         },
         fontFamily: 'Times, serif',
         color: "random-dark",
-        backgroundColor: '#ffe0e0'
+        backgroundColor: '#ffe0e0',
+        hover: function (item, dimension, event) {
+            showContent(item);
+        }
     });
+    function showContent(item) {
+        if (item) {
+            document.getElementById("current").innerHTML = "" + item[0] + ", " + item[1];
+        }
+    }
 </script>
 
 </html>
